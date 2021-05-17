@@ -20,19 +20,44 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT
         );
 
-        LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(75,75);
+        ln1.setOrientation(LinearLayout.VERTICAL);
+
+
+        LinearLayout lln [] = new LinearLayout[20];
+
+
+        LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(60,60);
 
         ImageView iv [] [] = new ImageView[10] [20];
 
 
-        for(int i=0;i<iv.length;i++)
+
+        for(int i=0;i<lln.length;i++)
         {
-            iv [i] [0]= new ImageView(this) ;
-            iv [i] [0].setImageResource(R.drawable.tet1);
-            ln1.addView(iv[i][0], lp1);
-            iv[i][0].setLayoutParams(parms);
-            
+
+            lln [i] = new LinearLayout(this);
+            ln1.addView(lln[i],lp1);
+            lln [i].setOrientation(LinearLayout.HORIZONTAL);
+
+
+            for(int y=0;y<iv.length;y++)
+            {
+                iv [y] [i]= new ImageView(this) ;
+                iv [y] [i].setImageResource(R.drawable.tet1);
+                lln[i].addView(iv[y][i], lp1);
+                iv[y][i].setLayoutParams(parms);
+
+            }
+
+
+
+
         }
+
+
+
+
+
 
     }
 }
